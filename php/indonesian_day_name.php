@@ -7,11 +7,13 @@
  * 
  * @return string
  */
-function indonesian_day_name(string $dateString): string
+function indonesian_day_name($dateString)
 {
     $unixTimestamp = strtotime($dateString);
     $dayOfWeek = date("w", $unixTimestamp);
     switch ($dayOfWeek) {
+        case 0:
+            return "Minggu";
         case 1:
             return "Senin";
         case 2:
@@ -24,8 +26,6 @@ function indonesian_day_name(string $dateString): string
             return "Jum'at";
         case 6:
             return "Sabtu";
-        case 7:
-            return "Minggu";
         default:
             return "Undefined";
     }
